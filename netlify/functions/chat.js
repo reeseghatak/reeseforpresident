@@ -22,7 +22,7 @@ exports.handler = async function(event, context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': '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',
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify(body),
@@ -30,7 +30,6 @@ exports.handler = async function(event, context) {
 
     const text = await response.text();
     console.log('Anthropic status:', response.status);
-    console.log('Anthropic response:', text);
 
     const data = JSON.parse(text);
 
